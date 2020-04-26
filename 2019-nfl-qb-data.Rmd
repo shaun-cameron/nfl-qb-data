@@ -5,26 +5,80 @@ date: "26/04/2020"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Overview
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This activity was provided to practice building simple linear regression models using R.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
+# The data
 
-## Including Plots
 
-You can also embed plots, for example:
+The data used for this activity can be found in the 2019_nfl_qb_data.csv file and contains Quarterback stats for all quarterbacks in the 2019 NFL season. It has been sourced from **pro-football-reference.com** and consists of the following variables:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+**case_no:** unique observation identification number
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+**player_name:** quarterback player name
+
+**player_id:** unique player identification number
+
+**team:** team the quarterback plays for in the NFL
+
+**age:** age of player in years
+
+**position:** Uppercase QB indicates a primary starting quarterback, while lowercase qb indicates a secondary quarterback
+
+**games_played:** number of games played
+
+**games_started:** number of games started
+
+**wins:** number of games won when starting
+
+**losses:** number of games lost when starting
+
+**draws:** number of games drawn when starting
+
+**completions:** number of passes completed
+
+**attempts:** number of passes attempted
+
+**cmp_pc:** passes completed as a percentage of passes attempted
+
+**yards:** yards gained by passing
+
+**touchdowns:** number of passing touchdowns
+
+**touchdown_pc:** passing touchdowns as a percentage of passes attempted
+
+**interceptions:** number of interceptions
+
+**interceptions_pc:** interceptions as a percentage of passes attempted
+
+**passer_rating:** Passer rating (also known as quarterback rating). For a description of the Passer rating see [**here**](https://en.wikipedia.org/wiki/Passer_rating)
+
+**sacks:** number of sacks
+
+**yards_lost:** number of yards lost due to sacks
+
+**sack_pc:** sacks as a percentage of passes attempted
+
+Each row is one players total stats for the 2019 season.
+
+
+
+# Our question
+
+
+Passer rating is a metric used to evaluate quarterbacks in the NFL, and it is calculated based on a quarterback’s completions, yards gained, touchdowns, interceptions and attempts.
+
+When using metrics to evaluate players or teams, it is important to determine whether these metrics are valid measures of performance. In this case, we need to determine if passer rating is a good measure of success. So, our question becomes:
+
+How does passer rating relate to success?
+
+We can use the number of wins (wins) a team has when a particular quarterback starts as a measure of success. And then the questions we are trying to answer now are:
+
+- Do quartbacks with a higher passer rating have more wins?
+
+- Do quarterbacks with a lower passer rating have fewer wins?
+
+- How many wins can we expect to get when we have a starting quarterback with a particular passer rating?
